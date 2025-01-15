@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [name, setname] = useState("");
   const [Course, setCourse] = useState("");
+
+  const Navigate = useNavigate();
 
   const submit = (e) => {
     e.preventDefault();
 
     setname("");
     setCourse("");
+
+    Navigate("/appoimentForm");
   };
 
   return (
@@ -45,13 +49,11 @@ function App() {
               />
             </div>
             <div className=" items-center justify-center flex">
-              <Link to="/appoimentForm" className="bg-blue-700 px-2 py-2 rounded">Submit</Link>
-
-              {/* <button className="bg-blue-700 px-2 py-2 rounded" type="submit">
+              <button className="bg-blue-700 px-2 py-2 rounded" type="submit">
                 submit
-              </button> */}
+              </button>
             </div>
-          </div>  
+          </div>
         </div>
       </form>
     </>
